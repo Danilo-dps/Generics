@@ -86,3 +86,19 @@ Number x = myNums.get(0); // erro de compilacao
 get - ERROR
 put - OK
 ```
+
+# Covariância & Contravariância
+
+- Nesse exemplo didático, o método `copy` aceita dois parâmetros.
+- O `List<? extends Number> source` usa o princípio de covariância (que acessa dados).
+- O `List<? super Number> destiny` usa o princípio de contravariância (que adiciona dados).
+- Quando o `for` inicia, ele acessa os dados da lista `source` e depois os adiciona na lista `destiny`.
+- Mostrando assim os dois princípios em uso no mesmo método.
+
+```java
+public static void copy(List<? extends Number> source, List<? super Number> destiny) {
+    for (Number number : source) {
+        destiny.add(number);
+    }
+}
+```
