@@ -53,3 +53,9 @@ parametrizados por tipo. Seus benefícios são:
 # Curingas delimitados(bounded wildcards)
 
 - A ideia geral da delimitação é garantir o type safety dos dados, assim como nos genéricos delimitados, os curingas delimitados tem essa proposta
+
+# Generics & Wildcards
+
+- `Wildcards` são um complemento dos `Generics`
+- Enquanto os generics permitem a criação de classes, interfaces e métodos genéricos
+- Os wildcards permitem que que métodos definidos como genéricos, recebam qualquer tipo de dado ligado com a estrutura da classe ou interface da qual ele faz parte.
