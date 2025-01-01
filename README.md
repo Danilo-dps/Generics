@@ -22,3 +22,30 @@ parametrizados por tipo. Seus benefícios são:
 `Product x = CalculationService.max(list);`
 - O compilador Java entende que `<T>` é `Product`, e o método `max` retorna um objeto do tipo `Product`, que é então atribuído à variável x.
 - Toda a parametrização genérica `<T extends Comparable<T>>` assegura que o método `max` pode ser utilizado com qualquer tipo que implemente `Comparable<T>`, e nesse exemplo específico, `Product` é esse tipo. Isso permite que o método seja flexível e reutilizável para diferentes tipos, desde que esses tipos implementem a interface `Comparable`.
+
+# Tipos Curinga (Wildcard Types) em Java
+
+### Super Tipo vs Subtipo
+- **Super Tipo**: Um tipo que é ancestral de outros tipos. Em Java, `Object` é o supertipo de todas as outras classes.
+- **Subtipo**: Um tipo que herda de outro tipo, sendo uma versão mais específica. Por exemplo, `String` é um subtipo de `Object`.
+### Classe Object
+- A `classe Object` é o supertipo de todas as classes em Java. Isso significa que qualquer objeto de qualquer classe pode ser tratado como um `Object`.
+- Exemplo: `Object obj = new String("Hello");` é válido porque `String` é um subtipo de `Object`.
+### List<Object> não é supertipo de outras List<>
+- Embora `Object` seja o supertipo de todas as classes, `List<Object>` não é o supertipo de todas as listas. Cada instância genérica de `List<>` é independente.
+- Por exemplo, você não pode passar `List<String>` onde `List<Object>` é esperado.
+### Tipos Curinga (Wildcard Types)
+- **Tipos Curinga (Wildcard Types)** permitem maior flexibilidade nos métodos. Eles permitem que um método aceite parâmetros de diferentes tipos sem especificar explicitamente o tipo em tempo de compilação.
+- Uma `List<?>` pode conter qualquer tipo, mas dentro do método, o tipo dos elementos é tratado como `Object`.
+- Exemplo:
+  ```java
+	public static void printList(List<?> list) {
+		for (Object obj : list) {
+			System.out.println(obj);
+		}
+	}
+- Esse método `printList` pode aceitar uma `List<Integer>`, `List<String>`, ou qualquer outra lista.
+- `List<?> como Super Tipo`: ao usar List<?>, você cria um método capaz de aceitar qualquer tipo de lista, oferecendo uma solução flexível e poderosa para manipulação de coleções heterogêneas.
+
+### Restrição 
+- **Tipos Curinga (Wildcard Types)** não permitem adicionar dados a uma coleção de tipo curinga
