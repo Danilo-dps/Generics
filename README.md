@@ -49,3 +49,7 @@ parametrizados por tipo. Seus benefícios são:
 
 ### Restrição 
 - **Tipos Curinga (Wildcard Types)** não permitem adicionar dados a uma coleção de tipo curinga
+
+# Curingas delimitados(bounded wildcards)
+
+- A ideia geral da delimitação é garantir o type safety dos dados, assim como nos genéricos delimitados, os curingas delimitados tem essa proposta
