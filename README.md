@@ -59,3 +59,30 @@ parametrizados por tipo. Seus benefícios são:
 - `Wildcards` são um complemento dos `Generics`
 - Enquanto os generics permitem a criação de classes, interfaces e métodos genéricos
 - Os wildcards permitem que que métodos definidos como genéricos, recebam qualquer tipo de dado ligado com a estrutura da classe ou interface da qual ele faz parte.
+
+# Princípio get/put - covariância
+- Quando é permitido acessar o dado(get), mas não é possivel adicionar dado(put)
+```java
+List<Integer> intList = new ArrayList<Integer>();
+intList.add(10);
+intList.add(5);
+List<? extends Number> list = intList;
+Number x = list.get(0);
+list.add(20); // erro de compilacao
+get - OK
+put - ERROR
+```
+	
+# Princípio get/put - contravariância
+- Quando é permitido adicionar dado(put), mas não é possivel acessar o dado(get)
+```java
+List<Object> myObjs = new ArrayList<Object>();
+myObjs.add("Maria");
+myObjs.add("Alex");
+List<? super Number> myNums = myObjs;
+myNums.add(10);
+myNums.add(3.14);
+Number x = myNums.get(0); // erro de compilacao
+get - ERROR
+put - OK
+```
